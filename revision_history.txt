@@ -1,0 +1,51 @@
+================================================================================
+v0.2.1 - 11 January 2015
+================================================================================
+- fixed a problem with the airfoil files path system variable 
+- small code readability enhancements
+================================================================================
+v0.2.0 - 3 January 2015
+================================================================================
+- a major new addition is a parametric airliner geometry - run transonic_airliner.py
+to see it, uncomment the appropriate lines at the end of the file to get it to
+generate geometries approximating a few existing aircraft types (B787-8,-9,A380).
+
+- another new parametric model is the one adding a pylon and a turbofan engine
+(external surface model) to a given wing surface - see engine.py
+
+- AirCONICStools.py now includes the function AddTEtoOpenAirfoil, which adds a 
+trailing edge closure to an open airfoil curve with a finite trailing edge.
+
+- Another new addition to AirCONICStools.py is a simple routine for assigining
+basic material properties to an object (AssignMaterial). This will have an effect
+on renderings.
+
+- The liftingsurface object now has an additional attribute, the variable 
+TipRequired. When set to False, the wing is not closed off with a tip surface
+(see, for example, the script nacelle_as_wrapped_around_wing_example.py - here
+there is no such thing as a wing tip - it would be inside the nacelle, so it is
+best not to generate it at all)
+
+- the wing_example_transonic_airliner.py example script now features more realistic
+airfoils and twist distribution, loosely based on the CRM (Common Research Model)
+
+- a tailfin/tailplane example has been added (airlinertail.py)
+
+- A bug has been fixed in the liftingsurface class, which caused an error in the
+calculation of the leading edge shape with certain highly non-linear sweep angle 
+variations
+
+- Other improvements throughout the code improving performance, functionality
+and stability
+
+================================================================================
+v0.1.1 - 18 October 2014
+================================================================================
+- Simple optimization routine (EVOP) added to AirCONICStools to enable the use
+of high level design variables (e.g., wing area) on 64-bit systems where Rhino/
+Python does not support SciPy (see wing_example_jetstream31.py for an example)
+
+- When closed airfoil sections are used, a wing tip closure surface is added to
+objects generated using the liftingsurface class
+
+- Miscellaneous minor edits
